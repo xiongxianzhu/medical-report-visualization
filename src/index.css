@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🏥 医生年度报告可视化平台 - 扁平设计系统 */
+/* Doctor Annual Report Visualization Platform - Flat Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* 🎨 Theme: Medical Blue (Default) - Flat Design */
+    --primary: 199 89% 48%;
+    --primary-hover: 199 89% 42%;
+    --primary-active: 199 89% 36%;
+    --primary-light: 199 40% 96%;
+    --primary-foreground: 0 0% 100%;
+
+    --background: 0 0% 98%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 220 20% 25%;
+
+    --muted: 210 15% 96%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 165 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 40% 95%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 50% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 50% 95%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 199 89% 48%;
+
+    /* 扁平设计：极小圆角 */
+    --radius: 2px;
+
+    /* 扁平设计：更小的圆角 */
+    --radius: 0.375rem;
+
+    /* 📊 Chart Colors */
+    --chart-1: 199 89% 48%;
+    --chart-2: 165 60% 45%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 60% 55%;
+    --chart-5: 340 75% 55%;
+
+    /* 🎯 Sidebar - Flat */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 30%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 199 40% 96%;
+    --sidebar-accent-foreground: 199 89% 35%;
+    --sidebar-border: 214 20% 92%;
+    --sidebar-ring: 199 89% 48%;
+  }
+
+  /* 🌲 Theme: Forest Green */
+  .theme-forest {
+    --primary: 152 60% 40%;
+    --primary-hover: 152 60% 35%;
+    --primary-active: 152 60% 30%;
+    --primary-light: 152 40% 96%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 85 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --ring: 152 60% 40%;
+
+    --chart-1: 152 60% 40%;
+    --chart-2: 85 50% 45%;
+    --chart-3: 45 80% 50%;
+    --chart-4: 180 50% 45%;
+    --chart-5: 120 40% 55%;
+
+    --sidebar-primary: 152 60% 40%;
+    --sidebar-accent: 152 40% 96%;
+    --sidebar-accent-foreground: 152 60% 30%;
+    --sidebar-ring: 152 60% 40%;
+  }
+
+  /* 🌅 Theme: Sunset Orange */
+  .theme-sunset {
+    --primary: 24 85% 55%;
+    --primary-hover: 24 85% 48%;
+    --primary-active: 24 85% 42%;
+    --primary-light: 24 50% 96%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 340 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --ring: 24 85% 55%;
+
+    --chart-1: 24 85% 55%;
+    --chart-2: 340 70% 55%;
+    --chart-3: 45 90% 55%;
+    --chart-4: 280 60% 60%;
+    --chart-5: 0 70% 55%;
+
+    --sidebar-primary: 24 85% 55%;
+    --sidebar-accent: 24 50% 96%;
+    --sidebar-accent-foreground: 24 85% 40%;
+    --sidebar-ring: 24 85% 55%;
+  }
+
+  /* 🌙 Dark Mode - Flat */
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 20% 13%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 20% 13%;
+    --popover-foreground: 210 20% 95%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 15% 90%;
+
+    --muted: 220 15% 16%;
+    --muted-foreground: 220 10% 60%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+
+    --sidebar-background: 220 20% 11%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-border: 220 15% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* 📊 Stats Card - Flat Design */
+  .stats-card {
+    @apply bg-card p-5 border border-border transition-colors duration-200;
+  }
+
+  .stats-card:hover {
+    @apply border-primary/30;
+  }
+
+  /* 🎯 Flat Button */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium transition-colors duration-150;
+  }
+
+  .btn-primary:hover {
+    background: hsl(var(--primary-hover));
+  }
+
+  .btn-primary:active {
+    background: hsl(var(--primary-active));
+  }
+
+  /* 📋 Table - Flat */
+  .medical-table {
+    @apply overflow-hidden border border-border;
+  }
+
+  .medical-table th {
+    @apply bg-muted font-semibold text-muted-foreground;
+  }
+
+  /* 🏷️ Status Badge - Flat */
+  .status-badge {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-medium;
+  }
+
+  .status-active {
+    @apply bg-success-light text-success;
+  }
+
+  .status-inactive {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .status-warning {
+    @apply bg-warning-light text-warning;
+  }
+
+  /* 🔐 Login Card - Flat */
+  .login-card {
+    @apply bg-card p-8 w-full max-w-md mx-auto border border-border;
+  }
+
+  /* 📈 Chart Container - Flat */
+  .chart-container {
+    @apply bg-card p-5 border border-border;
+  }
+
+  /* 🎭 Menu Item - Flat */
+  .menu-item {
+    @apply flex items-center gap-3 px-4 py-2.5 transition-colors duration-150 cursor-pointer;
+    @apply text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground;
+  }
+
+  .menu-item.active {
+    @apply bg-sidebar-primary text-sidebar-primary-foreground font-medium;
+  }
+
+  /* 📱 Responsive */
+  .container-fluid {
+    @apply w-full px-4 md:px-6 lg:px-8;
+  }
+
+  /* 🏥 Flat Nav */
+  .flat-nav {
+    @apply bg-card border-b border-border;
+  }
+
+  .flat-sidebar {
+    @apply bg-card border-r border-border;
+  }
+
+  /* 📦 Flat Card */
+  .flat-card {
+    @apply bg-card border border-border;
+  }
+}
+
+@layer utilities {
+  /* 🎯 Colors */
+  .bg-success { background-color: hsl(var(--success)); }
+  .bg-success-light { background-color: hsl(var(--success-light)); }
+  .text-success { color: hsl(var(--success)); }
+  
+  .bg-warning { background-color: hsl(var(--warning)); }
+  .bg-warning-light { background-color: hsl(var(--warning-light)); }
+  .text-warning { color: hsl(var(--warning)); }
+
+  .bg-primary-light { background-color: hsl(var(--primary-light)); }
+
+  /* 🌊 Animation */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
